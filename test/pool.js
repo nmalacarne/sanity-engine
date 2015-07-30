@@ -42,4 +42,14 @@ describe('Pool', function() {
     expect(p.max).to.be(100);
     expect(p.val).to.be(100);
   });
+
+  describe('#decrement()', function() {
+    it('should decrement by one', function() {
+      var p = new Pool();
+
+      p.decrement();
+
+      expect(p.val).to.be(99);
+    });
+  });
 });
