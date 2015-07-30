@@ -52,7 +52,7 @@ describe('Pool', function() {
       expect(p.val).to.be(99);
     });
 
-    it('should should not decrement below MIN', function() {
+    it('should not decrement below MIN', function() {
       var p = new Pool(5, 10, 5);
 
       p.decrement();
