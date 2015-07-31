@@ -1,6 +1,7 @@
-var expect = require('expect.js');
+var expect  = require('expect.js');
+var path    = require('path');
 
-var Pool = require('../lib/pool/pool');
+var Pool = require(path.join(process.cwd(), 'lib/pool/pool'));
 
 describe('Pool', function() {
   it('should initialize with default values', function() {
