@@ -69,5 +69,13 @@ describe('Pool', function() {
 
       expect(p.val).to.be(100);
     });
+
+    it('should not increment above MAX', function() {
+      var p = new Pool();
+
+      p.increment();
+
+      expect(p.val).to.be(100);
+    });
   });
 });
