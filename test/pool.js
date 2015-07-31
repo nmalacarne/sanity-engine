@@ -60,4 +60,14 @@ describe('Pool', function() {
       expect(p.val).to.be(5);
     });
   });
+
+  describe('#increment()', function() {
+    it('should increment by one', function() {
+      var p = new Pool(null, null, 99);
+
+      p.increment();
+
+      expect(p.val).to.be(100);
+    });
+  });
 });
