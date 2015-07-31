@@ -44,6 +44,26 @@ describe('Pool', function() {
     expect(p.val).to.be(100);
   });
 
+  describe('#create()', function() {
+    it('should construct a default Pool based on empty object', function() {
+      var obj = {};
+      var p = Pool.create(obj);
+
+      expect(p._min).to.be(0);
+      expect(p._max).to.be(100);
+      expect(p._val).to.be(100);
+    });
+
+    it('should construct a Pool based on custom object', function() {
+      var obj = {_min: 10, _max: 20, _val: 15};
+      var p = Pool.create(obj);
+
+      expect(p._min).to.be(10);
+      expect(p._max).to.be(20);
+      expect(p._val).to.be(15);
+    });
+  });
+
   describe('#decrement()', function() {
     it('should decrement value by one', function() {
       var p = new Pool();
