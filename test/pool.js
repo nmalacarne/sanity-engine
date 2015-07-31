@@ -44,7 +44,7 @@ describe('Pool', function() {
   });
 
   describe('#decrement()', function() {
-    it('should decrement by one', function() {
+    it('should decrement value by one', function() {
       var p = new Pool();
 
       p.decrement();
@@ -52,7 +52,7 @@ describe('Pool', function() {
       expect(p.val).to.be(99);
     });
 
-    it('should not decrement below MIN', function() {
+    it('should not decrement value below MIN', function() {
       var p = new Pool(5, 10, 5);
 
       p.decrement();
@@ -62,7 +62,7 @@ describe('Pool', function() {
   });
 
   describe('#increment()', function() {
-    it('should increment by one', function() {
+    it('should increment value by one', function() {
       var p = new Pool(null, null, 99);
 
       p.increment();
@@ -70,7 +70,7 @@ describe('Pool', function() {
       expect(p.val).to.be(100);
     });
 
-    it('should not increment above MAX', function() {
+    it('should not increment value above MAX', function() {
       var p = new Pool();
 
       p.increment();
