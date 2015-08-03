@@ -9,29 +9,39 @@ describe('Actor', function() {
     var a = new Actor();
 
     expect(a._pools).to.eql({});
+    expect(a._skills).to.eql({});
   });
 
   describe('#create()', function() {
     it('should construct default Actor from blank object', function() {
-      var obj = {};
-      var a = Actor.create(obj);
+      var a = Actor.create({});
 
       expect(a._pools).to.eql({});
+      expect(a._skills).to.eql({});
     });
 
     it('should construct an Actor with default Pool when given no Pool data', function() {
-      var obj = {_pools: {test: {}}};
-      var a = Actor.create(obj);
+      var a = Actor.create({
+        _pools: {
+          test: {}
+        }
+      });
 
-      expect(a._pools.test).to.eql({_min: 0, _max: 100, _val: 100});
+      expect(a._pools.test._min).to.be(0)
+      expect(a._pools.test._max).to.be(100)
+      expect(a._pools.test._val).to.be(100)
     });
 
     it('should construct an Actor with defined Pool data', function() {
-      var data = {_min: 10, _max: 20, _val: 15};
-      var obj = {_pools: {test: data}};
-      var a = Actor.create(obj);
+      var a = Actor.create({
+        _pools: {
+          test: {_min: 10, _max: 20, _val: 15}
+        }
+      });
 
-      expect(a._pools.test).to.eql(data);
+      expect(a._pools.test._min).to.be(10);
+      expect(a._pools.test._max).to.be(20);
+      expect(a._pools.test._val).to.be(15);
     });
   });
 

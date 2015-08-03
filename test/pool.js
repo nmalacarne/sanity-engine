@@ -46,8 +46,7 @@ describe('Pool', function() {
 
   describe('#create()', function() {
     it('should construct a default Pool based on empty object', function() {
-      var obj = {};
-      var p = Pool.create(obj);
+      var p = Pool.create({});
 
       expect(p._min).to.be(0);
       expect(p._max).to.be(100);
