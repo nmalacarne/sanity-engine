@@ -4,36 +4,38 @@ var path    = require('path');
 var Pool = require(path.join(process.cwd(), 'lib/pool'));
 
 describe('Pool', function() {
-  it('should initialize with default values', function() {
-    var p = new Pool();
+  describe('#constructor()', function() {
+    it('should initialize with default values', function() {
+      var p = new Pool();
 
-    expect(p.min).to.be(0);
-    expect(p.max).to.be(100);
-    expect(p.val).to.be(100);
-  });
+      expect(p.min).to.be(0);
+      expect(p.max).to.be(100);
+      expect(p.val).to.be(100);
+    });
 
-  it('should initialize with custom values', function() {
-    var p = new Pool({min: 10, max: 20, val: 15});
+    it('should initialize with custom values', function() {
+      var p = new Pool({min: 10, max: 20, val: 15});
 
-    expect(p.min).to.be(10);
-    expect(p.max).to.be(20);
-    expect(p.val).to.be(15);
-  });
+      expect(p.min).to.be(10);
+      expect(p.max).to.be(20);
+      expect(p.val).to.be(15);
+    });
 
-  it('should set starting value no lower than MIN', function() {
-    var p = new Pool({min: 10, max: 20, val: 1});
+    it('should set starting value no lower than MIN', function() {
+      var p = new Pool({min: 10, max: 20, val: 1});
 
-    expect(p.min).to.be(10);
-    expect(p.max).to.be(20);
-    expect(p.val).to.be(10);
-  });
+      expect(p.min).to.be(10);
+      expect(p.max).to.be(20);
+      expect(p.val).to.be(10);
+    });
 
-  it('should set starting value no higher than MAX', function() {
-    var p = new Pool({min: 10, max: 20, val: 25});
+    it('should set starting value no higher than MAX', function() {
+      var p = new Pool({min: 10, max: 20, val: 25});
 
-    expect(p.min).to.be(10);
-    expect(p.max).to.be(20);
-    expect(p.val).to.be(20);
+      expect(p.min).to.be(10);
+      expect(p.max).to.be(20);
+      expect(p.val).to.be(20);
+    });
   });
 
   describe('#decrement()', function() {

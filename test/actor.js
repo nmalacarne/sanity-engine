@@ -27,11 +27,10 @@ describe('Actor', function() {
   describe('#addPool()', function() {
     it('should add a Pool with specified key', function() {
       var a = new Actor();
-      var p = new Pool();
 
-      a.addPool('test', p);
+      a.addPool('test', new Pool());
 
-      expect(a.pools.test).to.eql(p);
+      expect(a.pools.test).to.eql(new Pool());
     });
   });
 });
