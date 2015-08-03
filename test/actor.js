@@ -5,11 +5,23 @@ var Actor = require(path.join(process.cwd(), 'lib/actor'));
 var Pool = require(path.join(process.cwd(), 'lib/pool'));
 
 describe('Actor', function() {
-  it('should initialize with default values', function() {
-    var a = new Actor();
+  describe('#constructor()', function() {
+    it('should initialize with default values', function() {
+      var a = new Actor();
 
-    expect(a.pools).to.eql({});
-    expect(a.skills).to.eql({});
+      expect(a.pools).to.eql({});
+      expect(a.skills).to.eql({});
+    });
+
+    it('should initialize with Pool data', function() {
+      var a = new Actor({
+        pools: {
+          'test': new Pool()
+        }
+      });
+
+      expect(a.pools.test).to.eql(new Pool());
+    });
   });
 
   describe('#addPool()', function() {
