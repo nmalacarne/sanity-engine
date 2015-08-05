@@ -1,8 +1,8 @@
 {
-  "name": "society-wars",
+  "name": "sanity-engine",
   "version": "0.0.1",
-  "description": "A simple websockets game.",
-  "main": "server.js",
+  "description": "A library for turn based games.",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --recursive"
   },
@@ -10,14 +10,11 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nmalacarne/society-wars"
+    "url": "https://github.com/nmalacarne/sanity-engine"
   },
-  "dependencies": {
-    "socket.io": "^1.3.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^2.2.5",
-    "socket.io-client": "^1.3.6"
+    "mocha": "^2.2.5"
   }
 }
