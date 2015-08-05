@@ -23,7 +23,7 @@ describe('Skill', function() {
     it('should initialize with specified Pool', function() {
       var s = new Skill({
         pools: {
-          'test': new Pool()
+          test: new Pool()
         }
       });
 
