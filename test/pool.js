@@ -1,12 +1,12 @@
 var expect  = require('expect.js');
 var path    = require('path');
 
-var Pool = require(path.join(process.cwd(), 'lib/pool'));
+var pool = require(path.join(process.cwd(), 'lib/pool'));
 
-describe('Pool', function() {
+describe('pool', function() {
   describe('#constructor()', function() {
     it('should initialize with default values', function() {
-      var p = new Pool();
+      var p = pool();
 
       expect(p.min).to.be(0);
       expect(p.max).to.be(100);
@@ -14,7 +14,7 @@ describe('Pool', function() {
     });
 
     it('should initialize with custom values', function() {
-      var p = new Pool({min: 10, max: 20, val: 15});
+      var p = pool({min: 10, max: 20, val: 15});
 
       expect(p.min).to.be(10);
       expect(p.max).to.be(20);
@@ -22,7 +22,7 @@ describe('Pool', function() {
     });
 
     it('should set starting value no lower than MIN', function() {
-      var p = new Pool({min: 10, max: 20, val: 1});
+      var p = pool({min: 10, max: 20, val: 1});
 
       expect(p.min).to.be(10);
       expect(p.max).to.be(20);
@@ -30,7 +30,7 @@ describe('Pool', function() {
     });
 
     it('should set starting value no higher than MAX', function() {
-      var p = new Pool({min: 10, max: 20, val: 25});
+      var p = pool({min: 10, max: 20, val: 25});
 
       expect(p.min).to.be(10);
       expect(p.max).to.be(20);
@@ -40,7 +40,7 @@ describe('Pool', function() {
 
   describe('#decrement()', function() {
     it('should decrement value by one', function() {
-      var p = new Pool();
+      var p = pool();
 
       p.decrement();
 
@@ -48,7 +48,7 @@ describe('Pool', function() {
     });
 
     it('should not decrement value below MIN', function() {
-      var p = new Pool({min: 5, max: 10, val: 5});
+      var p = pool({min: 5, max: 10, val: 5});
 
       p.decrement();
 
@@ -58,7 +58,7 @@ describe('Pool', function() {
 
   describe('#increment()', function() {
     it('should increment value by one', function() {
-      var p = new Pool({min: null, max: null, val: 99});
+      var p = pool({min: null, max: null, val: 99});
 
       p.increment();
 
@@ -66,7 +66,7 @@ describe('Pool', function() {
     });
 
     it('should not increment value above MAX', function() {
-      var p = new Pool();
+      var p = pool();
 
       p.increment();
 
