@@ -2,9 +2,9 @@ var expect  = require('expect.js');
 var path    = require('path');
 
 var skill = require(path.join(process.cwd(), 'lib/skill'));
-var Pool  = require(path.join(process.cwd(), 'lib/pool'));
+var pool  = require(path.join(process.cwd(), 'lib/pool'));
 
-describe('Skill', function() {
+describe('skill', function() {
   describe('#constructor()', function() {
     it('should initialize with default values', function() {
       var s = skill();
@@ -23,11 +23,11 @@ describe('Skill', function() {
     it('should initialize with specified Pool', function() {
       var s = skill({
         pools: {
-          test: new Pool()
+          test: pool()
         }
       });
 
-      expect(s.pools.test).to.eql(new Pool());
+      expect(s.pools.test).to.eql(pool());
     });
 
     it('should initialize with specified Effect', function() {
@@ -38,10 +38,11 @@ describe('Skill', function() {
   describe('#addPool()', function() {
     it('should add a Pool object under specified key', function() {
       var s = skill();
+      var p = pool();
 
-      s.addPool('test', new Pool());
+      s.addPool('test', p);
 
-      expect(s.pools.test).to.eql(new Pool());
+      expect(s.pools.test).to.eql(p);
     });
   });
 
