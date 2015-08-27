@@ -21,6 +21,12 @@ describe('pool', function() {
       expect(p.val).to.be(15);
     });
 
+    it('should allow starting value to equal MIN', function () {
+      var p = pool({val: 0});
+
+      expect(p.val).to.be(0);
+    });
+
     it('should set starting value no lower than MIN', function() {
       var p = pool({min: 10, max: 20, val: 1});
 
@@ -38,39 +44,29 @@ describe('pool', function() {
     });
   });
 
-  describe('#decrement()', function() {
-    it('should decrement value by one', function() {
+  describe('.val', function () {
+    it('should increment by X', function () {
+      var p = pool({val: 50});
+
+      p.val += 1;
+
+      expect(p.val).to.be(51);
+    });
+
+    it('should decrement by X', function () {
       var p = pool();
 
-      p.decrement();
+      p.val -= 1;
 
       expect(p.val).to.be(99);
     });
 
-    it('should not decrement value below MIN', function() {
-      var p = pool({min: 5, max: 10, val: 5});
-
-      p.decrement();
-
-      expect(p.val).to.be(5);
-    });
-  });
-
-  describe('#increment()', function() {
-    it('should increment value by one', function() {
-      var p = pool({min: null, max: null, val: 99});
-
-      p.increment();
-
-      expect(p.val).to.be(100);
-    });
-
-    it('should not increment value above MAX', function() {
+    it('should set val equal to X', function () {
       var p = pool();
 
-      p.increment();
+      p.val = 50;
 
-      expect(p.val).to.be(100);
+      expect(p.val).to.be(50);
     });
   });
 });
