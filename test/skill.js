@@ -1,7 +1,7 @@
 var expect  = require('expect.js');
 
-var skill = require('../').skill;
-var pool  = require('../').pool;
+var skill = require(process.cwd()).skill;
+var pool  = require(process.cwd()).pool;
 
 describe('skill', function () {
   describe('#constructor()', function () {

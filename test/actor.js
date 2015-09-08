@@ -1,7 +1,7 @@
 var expect = require('expect.js');
 
-var actor = require('../').actor;
-var pool = require('../').pool;
+var actor = require(process.cwd()).actor;
+var pool = require(process.cwd()).pool;
 
 describe('actor', function () {
   describe('#constructor()', function () {

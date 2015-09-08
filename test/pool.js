@@ -1,6 +1,6 @@
 var expect  = require('expect.js');
 
-var pool = require('../').pool;
+var pool = require(process.cwd()).pool;
 
 describe('pool', function () {
   describe('#constructor()', function () {
