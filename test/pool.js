@@ -1,11 +1,10 @@
 var expect  = require('expect.js');
-var path    = require('path');
 
-var pool = require(path.join(process.cwd(), 'lib/pool'));
+var pool = require('../').pool;
 
-describe('pool', function() {
-  describe('#constructor()', function() {
-    it('should initialize with default values', function() {
+describe('pool', function () {
+  describe('#constructor()', function () {
+    it('should initialize with default values', function () {
       var p = pool();
 
       expect(p.min).to.be(0);
@@ -13,7 +12,7 @@ describe('pool', function() {
       expect(p.val).to.be(100);
     });
 
-    it('should initialize with custom values', function() {
+    it('should initialize with custom values', function () {
       var p = pool({min: 10, max: 20, val: 15});
 
       expect(p.min).to.be(10);
@@ -27,7 +26,7 @@ describe('pool', function() {
       expect(p.val).to.be(0);
     });
 
-    it('should set starting value no lower than MIN', function() {
+    it('should set starting value no lower than MIN', function () {
       var p = pool({min: 10, max: 20, val: 1});
 
       expect(p.min).to.be(10);
@@ -35,7 +34,7 @@ describe('pool', function() {
       expect(p.val).to.be(10);
     });
 
-    it('should set starting value no higher than MAX', function() {
+    it('should set starting value no higher than MAX', function () {
       var p = pool({min: 10, max: 20, val: 25});
 
       expect(p.min).to.be(10);

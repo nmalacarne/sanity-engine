@@ -1,12 +1,11 @@
 var expect  = require('expect.js');
-var path    = require('path');
 
-var skill = require(path.join(process.cwd(), 'lib/skill'));
-var pool  = require(path.join(process.cwd(), 'lib/pool'));
+var skill = require('../').skill;
+var pool  = require('../').pool;
 
-describe('skill', function() {
-  describe('#constructor()', function() {
-    it('should initialize with default values', function() {
+describe('skill', function () {
+  describe('#constructor()', function () {
+    it('should initialize with default values', function () {
       var s = skill();
 
       expect(s.name).to.be('[none]');
@@ -14,13 +13,13 @@ describe('skill', function() {
       expect(s.effects).to.eql({});
     });
 
-    it('should initialize with specified name', function() {
+    it('should initialize with specified name', function () {
       var s = skill({name: 'Testing'});
 
       expect(s.name).to.be('Testing');
     });
 
-    it('should initialize with specified Pool', function() {
+    it('should initialize with specified Pool', function () {
       var s = skill({
         pools: {
           test: pool()
@@ -30,13 +29,13 @@ describe('skill', function() {
       expect(s.pools.test).to.eql(pool());
     });
 
-    it('should initialize with specified Effect', function() {
+    it('should initialize with specified Effect', function () {
       //TODO: create effect module
     });
   });
 
-  describe('#addPool()', function() {
-    it('should add a Pool object under specified key', function() {
+  describe('#addPool()', function () {
+    it('should add a Pool object under specified key', function () {
       var s = skill();
       var p = pool();
 
@@ -46,7 +45,7 @@ describe('skill', function() {
     });
   });
 
-  describe('#addEffect()', function() {
+  describe('#addEffect()', function () {
     // TODO: create effect module
   });
 });
