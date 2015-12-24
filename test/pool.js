@@ -1,3 +1,5 @@
+'use strict';
+
 var expect  = require('expect.js');
 
 var pool = require(process.cwd()).pool;

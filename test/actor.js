@@ -1,3 +1,5 @@
+'use strict';
+
 var expect = require('expect.js');
 
 var actor = require(process.cwd()).actor;
