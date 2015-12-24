@@ -1,9 +1,9 @@
 'use strict';
 
-var expect = require('expect.js');
+const expect = require('expect.js');
 
-var actor = require(process.cwd()).actor;
-var pool = require(process.cwd()).pool;
+const actor = require(process.cwd()).actor;
+const pool = require(process.cwd()).pool;
 
 describe('actor', function () {
   describe('#constructor()', function () {
