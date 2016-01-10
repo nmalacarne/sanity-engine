@@ -1,17 +1,20 @@
 'use strict';
 
-var expect  = require('expect.js');
+const expect  = require('expect.js');
 
-var pool = require(process.cwd()).pool;
+const engine = require(process.cwd());
+
+const pool  = engine.pool;
+const def   = engine.defaults;
 
 describe('pool', function () {
   describe('#constructor()', function () {
     it('should initialize with default values', function () {
       var p = pool();
 
-      expect(p.min).to.be(0);
-      expect(p.max).to.be(100);
-      expect(p.val).to.be(100);
+      expect(p.min).to.be(def.pool.min);
+      expect(p.max).to.be(def.pool.max);
+      expect(p.val).to.be(def.pool.max);
     });
 
     it('should initialize with custom values', function () {
@@ -23,25 +26,21 @@ describe('pool', function () {
     });
 
     it('should allow starting value to equal MIN', function () {
-      var p = pool({val: 0});
+      var p = pool({val: def.pool.min});
 
-      expect(p.val).to.be(0);
+      expect(p.val).to.be(def.pool.min);
     });
 
     it('should set starting value no lower than MIN', function () {
-      var p = pool({min: 10, max: 20, val: 1});
+      var p = pool({val: -5});
 
-      expect(p.min).to.be(10);
-      expect(p.max).to.be(20);
-      expect(p.val).to.be(10);
+      expect(p.val).to.be(def.pool.min);
     });
 
     it('should set starting value no higher than MAX', function () {
-      var p = pool({min: 10, max: 20, val: 25});
+      var p = pool({val: 125});
 
-      expect(p.min).to.be(10);
-      expect(p.max).to.be(20);
-      expect(p.val).to.be(20);
+      expect(p.val).to.be(def.pool.max);
     });
   });
 
