@@ -6,5 +6,5 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | b
 source ~/.nvm/nvm.sh
 cd /vagrant
 nvm install
-nvm alias default
+nvm alias default node
 npm install
