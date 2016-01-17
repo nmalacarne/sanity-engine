@@ -28,4 +28,13 @@ describe('helper', function () {
       expect(v).to.be(z);
     });
   });
+
+  describe('#define', function () {
+    it('should return an object', function () {
+      const x = 1;
+      const def = help.define(x);
+
+      expect(def).to.be.an('object');
+    });
+  });
 });
