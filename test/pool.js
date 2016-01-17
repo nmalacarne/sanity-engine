@@ -73,7 +73,7 @@ describe('pool', function () {
       const p = pool();
       const x = 1;
 
-      p.on('value-changed', function (previousValue, newValue) {
+      p.on(defaults.pool.events.VAL_CHANGED, function (previousValue, newValue) {
         expect(previousValue).to.be(p.max);
         expect(newValue).to.be(p.max - x);
         done();
