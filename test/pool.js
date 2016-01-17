@@ -81,5 +81,18 @@ describe('pool', function () {
 
       p.val -= x;
     });
+
+
+    it('should emit an event when val is changed if val is equal to min', function (done) {
+      const p = pool({val: 1});
+      const x = 1;
+
+      p.on(defaults.pool.events.VAL_EMPTY, function () {
+        expect(true);
+        done();
+      });
+
+      p.val -= x;
+    });
   });
 });
