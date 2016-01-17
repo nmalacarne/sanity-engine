@@ -36,5 +36,13 @@ describe('helper', function () {
 
       expect(def).to.be.an('object');
     });
+
+    it('should define an undefined value', function () {
+      const value = undefined;
+
+      const def = help.define(value).or.use(1);
+
+      expect(def).to.be(1);
+    });
   });
 });
