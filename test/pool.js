@@ -68,5 +68,16 @@ describe('pool', function () {
 
       expect(p.val).to.be(50);
     });
+
+    it('should emit event when value changes', function (done) {
+      const p = pool();
+
+      p.on('value-changed', function (value) {
+        expect(value).to.be(defaults.pool.max - 1);
+        done();
+      });
+
+      p.val -= 1;
+    });
   });
 });
