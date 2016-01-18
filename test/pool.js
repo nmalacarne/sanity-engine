@@ -94,5 +94,17 @@ describe('pool', function () {
 
       p.val -= x;
     });
+
+    it('should emit an event when val is changed if val is equal to max', function (done) {
+      const p = pool({val: 99});
+      const x = 1;
+
+      p.on(defaults.pool.events.VAL_FULL, function () {
+        expect(true);
+        done();
+      });
+
+      p.val += x;
+    });
   });
 });
