@@ -107,4 +107,18 @@ describe('pool', function () {
       p.val += x;
     });
   });
+
+  describe('#toJSON', function () {
+    it('should serialize to a spec', function () {
+      const p = pool();
+      const json = JSON.stringify(p);
+      const spec = JSON.parse(json);
+
+      expect(spec).to.eql({
+        val: defaults.pool.max,
+        min: defaults.pool.min,
+        max: defaults.pool.max
+      });
+    });
+  });
 });
