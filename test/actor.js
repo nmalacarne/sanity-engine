@@ -2,17 +2,19 @@
 
 const expect = require('expect.js');
 
-const actor = require(process.cwd()).actor;
-const pool = require(process.cwd()).pool;
+const engine = require(process.cwd());
+
+const actor     = engine.actor;
+const pool      = engine.pool;
+const defaults  = engine.defaults;
 
 describe('actor', function () {
   describe('#constructor()', function () {
     it('should initialize with default values', function () {
       const a = actor();
 
-      expect(a.name).to.eql('[no name]');
-      expect(a.pools).to.eql({});
-      expect(a.skills).to.eql({});
+      expect(a.name).to.eql(defaults.actor.name);
+      expect(a.pools).to.eql(defaults.actor.pools);
     });
 
     it('should initialize with Pool data', function () {
@@ -33,7 +35,21 @@ describe('actor', function () {
 
       a.addPool('test', pool());
 
+      expect(a.pools).to.only.have.key('test');
       expect(a.pools.test).to.eql(pool());
+    });
+  });
+
+  describe('#toJSON()', function () {
+    it('should serialize with spec keys', function () {
+      const a = actor();
+      const json = JSON.stringify(a);
+      const spec = JSON.parse(json);
+
+      expect(spec).to.eql({
+        name:   defaults.actor.name,
+        pools:  defaults.actor.pools
+      });
     });
   });
 });
