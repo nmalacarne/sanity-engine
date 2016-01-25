@@ -18,14 +18,28 @@ describe('actor', function () {
     });
 
     it('should initialize with Pool data', function () {
-      const p = pool();
       const a = actor({
-        pools: {
-          test: p
-        }
+        pools: defaults.actor.pools
       });
 
-      expect(a.pools.test).to.eql(p);
+      expect(a.pools).to.eql(defaults.actor.pools);
+    });
+  });
+
+  describe('#toJSON()', function () {
+    it('should serialize with spec keys', function () {
+      const a = actor({
+        pools: {
+          test: {
+            val: 50
+          }
+        }
+      });
+      const json = JSON.stringify(a);
+      const spec = JSON.parse(json);
+      const b = actor(spec);
+
+      expect(a).to.eql(b);
     });
   });
 
@@ -40,16 +54,4 @@ describe('actor', function () {
     });
   });
 
-  describe('#toJSON()', function () {
-    it('should serialize with spec keys', function () {
-      const a = actor();
-      const json = JSON.stringify(a);
-      const spec = JSON.parse(json);
-
-      expect(spec).to.eql({
-        name:   defaults.actor.name,
-        pools:  defaults.actor.pools
-      });
-    });
-  });
 });
