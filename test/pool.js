@@ -5,16 +5,16 @@ const expect  = require('expect.js');
 const engine = require(process.cwd());
 
 const pool      = engine.pool;
-const defaults  = engine.defaults;
+const config    = engine.config;
 
 describe('pool', function () {
   describe('#constructor()', function () {
     it('should initialize with default values', function () {
       const p = pool();
 
-      expect(p.min).to.be(defaults.pool.min);
-      expect(p.max).to.be(defaults.pool.max);
-      expect(p.val).to.be(defaults.pool.max);
+      expect(p.min).to.be(config.pool.min);
+      expect(p.max).to.be(config.pool.max);
+      expect(p.val).to.be(config.pool.max);
     });
 
     it('should initialize with custom values', function () {
@@ -26,21 +26,21 @@ describe('pool', function () {
     });
 
     it('should allow starting value to equal MIN', function () {
-      const p = pool({val: defaults.pool.min});
+      const p = pool({val: config.pool.min});
 
-      expect(p.val).to.be(defaults.pool.min);
+      expect(p.val).to.be(config.pool.min);
     });
 
     it('should set starting value equal to MIN when lower than MIN', function () {
       const p = pool({val: -5});
 
-      expect(p.val).to.be(defaults.pool.min);
+      expect(p.val).to.be(config.pool.min);
     });
 
     it('should set starting value equal to MAX when higher than MAX', function () {
       const p = pool({val: 125});
 
-      expect(p.val).to.be(defaults.pool.max);
+      expect(p.val).to.be(config.pool.max);
     });
 
     it('should swap min and max values when min > max', function () {
@@ -81,7 +81,7 @@ describe('pool', function () {
       const p = pool();
       const x = 1;
 
-      p.on(defaults.pool.events.VAL_CHANGED, function (previousValue, newValue) {
+      p.on(config.pool.events.VAL_CHANGED, function (previousValue, newValue) {
         expect(previousValue).to.be(p.max);
         expect(newValue).to.be(p.max - x);
         done();
@@ -95,7 +95,7 @@ describe('pool', function () {
       const p = pool({val: 1});
       const x = 1;
 
-      p.on(defaults.pool.events.VAL_EMPTY, function () {
+      p.on(config.pool.events.VAL_EMPTY, function () {
         expect(true);
         done();
       });
@@ -107,7 +107,7 @@ describe('pool', function () {
       const p = pool({val: 99});
       const x = 1;
 
-      p.on(defaults.pool.events.VAL_FULL, function () {
+      p.on(config.pool.events.VAL_FULL, function () {
         expect(true);
         done();
       });
@@ -123,9 +123,9 @@ describe('pool', function () {
       const spec = JSON.parse(json);
 
       expect(spec).to.eql({
-        val: defaults.pool.max,
-        min: defaults.pool.min,
-        max: defaults.pool.max
+        val: config.pool.max,
+        min: config.pool.min,
+        max: config.pool.max
       });
     });
   });

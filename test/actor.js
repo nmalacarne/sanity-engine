@@ -6,23 +6,23 @@ const engine = require(process.cwd());
 
 const actor     = engine.actor;
 const pool      = engine.pool;
-const defaults  = engine.defaults;
+const config    = engine.config;
 
 describe('actor', function () {
   describe('#constructor()', function () {
     it('should initialize with default values', function () {
       const a = actor();
 
-      expect(a.name).to.eql(defaults.actor.name);
-      expect(a.pools).to.eql(defaults.actor.pools);
+      expect(a.name).to.eql(config.actor.name);
+      expect(a.pools).to.eql(config.actor.pools);
     });
 
     it('should initialize with Pool data', function () {
       const a = actor({
-        pools: defaults.actor.pools
+        pools: config.actor.pools
       });
 
-      expect(a.pools).to.eql(defaults.actor.pools);
+      expect(a.pools).to.eql(config.actor.pools);
     });
   });
 
