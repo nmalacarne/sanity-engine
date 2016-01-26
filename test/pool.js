@@ -42,6 +42,14 @@ describe('pool', function () {
 
       expect(p.val).to.be(defaults.pool.max);
     });
+
+    it('should swap min and max values when min > max', function () {
+      const min = 100;
+      const max = 0
+      const p = pool({min: 100, max: 0});
+
+      expect(p.min).to.be.below(p.max);
+    });
   });
 
   describe('.val', function () {
