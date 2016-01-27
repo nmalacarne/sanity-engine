@@ -2,52 +2,19 @@
 
 const expect  = require('expect.js');
 
-const skill = require(process.cwd()).skill;
-const pool  = require(process.cwd()).pool;
+const engine = require(process.cwd());
+
+const config    = engine.config;
+const skill     = engine.skill;
 
 describe('skill', function () {
   describe('#constructor()', function () {
     it('should initialize with default values', function () {
       var s = skill();
 
-      expect(s.name).to.be('[none]');
-      expect(s.pools).to.eql({});
-      expect(s.effects).to.eql({});
+      expect(s.name).to.be(config.skill.name);
+      expect(s.pools).to.eql(config.skill.pools);
+      expect(s.effects).to.eql(config.skill.effects);
     });
-
-    it('should initialize with specified name', function () {
-      var s = skill({name: 'Testing'});
-
-      expect(s.name).to.be('Testing');
-    });
-
-    it('should initialize with specified Pool', function () {
-      var s = skill({
-        pools: {
-          test: pool()
-        }
-      });
-
-      expect(s.pools.test).to.eql(pool());
-    });
-
-    it('should initialize with specified Effect', function () {
-      //TODO: create effect module
-    });
-  });
-
-  describe('#addPool()', function () {
-    it('should add a Pool object under specified key', function () {
-      var s = skill();
-      var p = pool();
-
-      s.addPool('test', p);
-
-      expect(s.pools.test).to.eql(p);
-    });
-  });
-
-  describe('#addEffect()', function () {
-    // TODO: create effect module
   });
 });
