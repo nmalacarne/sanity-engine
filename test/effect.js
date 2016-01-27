@@ -12,10 +12,12 @@ const config  = engine.config;
 const effect  = engine.effect;
 
 describe('effect', function () {
-  it('should initialize with default values', function () {
-    const e = effect();
+  describe('#constructor', function () {
+    it('should initialize with default values', function () {
+      const e = effect();
 
-    expect(e.name).to.eql(config.effect.name)
-    expect(e.pools).to.eql(config.effect.pools)
+      expect(e.name).to.eql(config.effect.name)
+      expect(e.pools).to.eql(config.effect.pools)
+    });
   });
 });

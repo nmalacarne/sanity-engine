@@ -8,7 +8,7 @@ const config    = engine.config;
 const skill     = engine.skill;
 
 describe('skill', function () {
-  describe('#constructor()', function () {
+  describe('#constructor', function () {
     it('should initialize with default values', function () {
       var s = skill();
 

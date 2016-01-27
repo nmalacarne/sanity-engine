@@ -8,7 +8,7 @@ const config    = engine.config;
 const pool      = engine.pool;
 
 describe('pool', function () {
-  describe('#constructor()', function () {
+  describe('#constructor', function () {
     it('should initialize with default values', function () {
       const p = pool();
 

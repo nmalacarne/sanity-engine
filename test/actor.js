@@ -9,7 +9,7 @@ const config    = engine.config;
 const pool      = engine.pool;
 
 describe('actor', function () {
-  describe('#constructor()', function () {
+  describe('#constructor', function () {
     it('should initialize with default values', function () {
       const a = actor();
 
@@ -26,7 +26,7 @@ describe('actor', function () {
     });
   });
 
-  describe('#toJSON()', function () {
+  describe('#toJSON', function () {
     it('should serialize with spec keys', function () {
       const a = actor({
         pools: {
@@ -43,7 +43,7 @@ describe('actor', function () {
     });
   });
 
-  describe('#addPool()', function () {
+  describe('#addPool', function () {
     it('should add a Pool with specified key', function () {
       const a = actor();
 
