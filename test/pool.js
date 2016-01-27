@@ -4,8 +4,8 @@ const expect  = require('expect.js');
 
 const engine = require(process.cwd());
 
-const pool      = engine.pool;
 const config    = engine.config;
+const pool      = engine.pool;
 
 describe('pool', function () {
   describe('#constructor()', function () {
