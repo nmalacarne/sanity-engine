@@ -48,9 +48,10 @@ describe('helper', function () {
   });
 
   describe('#createMany', function () {
-    it('should populate an object by running a module on a spec', function () {
+    it('should only populate when spec is of module type', function () {
       const spec = {
         first: {
+          type: 'pool',
           val: 22
         },
         second: {
@@ -60,9 +61,17 @@ describe('helper', function () {
 
       const pools = help.createMany(pool).from(spec);
 
-      expect(pools).to.have.keys('first', 'second');
+      expect(pools).to.have.key('first');
+      expect(pools).to.not.have.key('second');
       expect(pools.first).to.be.a(pool().constructor);
-      expect(pools.second).to.be.a(pool().constructor);
+    });
+  });
+
+  describe('#getType', function () {
+    it('should return constructors type as a string', function () {
+      const type = help.getType(pool());
+
+      expect(type).to.eql('pool');
     });
   });
 });
