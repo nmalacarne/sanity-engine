@@ -2,6 +2,11 @@
   "name": "sanity-engine",
   "version": "0.0.1",
   "dependencies": {
+    "app-module-path": {
+      "version": "2.1.0",
+      "from": "app-module-path@latest",
+      "resolved": "https://registry.npmjs.org/app-module-path/-/app-module-path-2.1.0.tgz"
+    },
     "expect.js": {
       "version": "0.3.1",
       "from": "https://registry.npmjs.org/expect.js/-/expect.js-0.3.1.tgz",
@@ -44,6 +49,16 @@
           "from": "https://registry.npmjs.org/glob/-/glob-3.2.3.tgz",
           "resolved": "https://registry.npmjs.org/glob/-/glob-3.2.3.tgz",
           "dependencies": {
+            "graceful-fs": {
+              "version": "2.0.3",
+              "from": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-2.0.3.tgz",
+              "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-2.0.3.tgz"
+            },
+            "inherits": {
+              "version": "2.0.1",
+              "from": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz",
+              "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
+            },
             "minimatch": {
               "version": "0.2.14",
               "from": "https://registry.npmjs.org/minimatch/-/minimatch-0.2.14.tgz",
@@ -60,16 +75,6 @@
                   "resolved": "https://registry.npmjs.org/sigmund/-/sigmund-1.0.1.tgz"
                 }
               }
-            },
-            "graceful-fs": {
-              "version": "2.0.3",
-              "from": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-2.0.3.tgz",
-              "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-2.0.3.tgz"
-            },
-            "inherits": {
-              "version": "2.0.1",
-              "from": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz",
-              "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
             }
           }
         },

@@ -12,7 +12,9 @@
     "type": "git",
     "url": "https://github.com/nmalacarne/sanity-engine"
   },
-  "dependencies": {},
+  "dependencies": {
+    "app-module-path": "^2.1.0"
+  },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^2.2.5"

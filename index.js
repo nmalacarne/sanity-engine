@@ -1,6 +1,8 @@
-exports.actor     = require('./lib/actor');
-exports.config    = require('./lib/config');
-exports.effect    = require('./lib/effect');
-exports.helper    = require('./lib/helper');
-exports.pool      = require('./lib/pool');
-exports.skill     = require('./lib/skill');
+require('app-module-path').addPath(__dirname + '/lib');
+
+exports.actor     = require('actor');
+exports.config    = require('config');
+exports.effect    = require('effect');
+exports.helper    = require('helper');
+exports.pool      = require('pool');
+exports.skill     = require('skill');
