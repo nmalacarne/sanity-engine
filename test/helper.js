@@ -46,32 +46,4 @@ describe('helper', function () {
       expect(def).to.be(1);
     });
   });
-
-  describe('#createMany', function () {
-    it('should only populate when spec is of module type', function () {
-      const spec = {
-        first: {
-          type: 'pool',
-          val: 22
-        },
-        second: {
-          val: 76
-        }
-      };
-
-      const pools = help.createMany(pool).from(spec);
-
-      expect(pools).to.have.key('first');
-      expect(pools).to.not.have.key('second');
-      expect(pools.first).to.be.a(pool().constructor);
-    });
-  });
-
-  describe('#getKlass', function () {
-    it('should return constructors type as a string', function () {
-      const klass = help.getKlass(pool());
-
-      expect(klass).to.eql('pool');
-    });
-  });
 });
