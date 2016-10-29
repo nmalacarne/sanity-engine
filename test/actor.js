@@ -26,23 +26,6 @@ describe('actor', function () {
     });
   });
 
-  describe('#toJSON', function () {
-    it('should serialize with spec keys', function () {
-      const a = actor({
-        pools: {
-          test: {
-            val: 50
-          }
-        }
-      });
-      const json = JSON.stringify(a);
-      const spec = JSON.parse(json);
-      const b = actor(spec);
-
-      expect(a).to.eql(b);
-    });
-  });
-
   describe('#addPool', function () {
     it('should add a Pool with specified key', function () {
       const a = actor();
