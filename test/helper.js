@@ -67,11 +67,11 @@ describe('helper', function () {
     });
   });
 
-  describe('#getType', function () {
+  describe('#getKlass', function () {
     it('should return constructors type as a string', function () {
-      const type = help.getType(pool());
+      const klass = help.getKlass(pool());
 
-      expect(type).to.eql('pool');
+      expect(klass).to.eql('pool');
     });
   });
 });
