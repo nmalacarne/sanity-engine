@@ -46,4 +46,21 @@ describe('helper', function () {
       expect(def).to.be(1);
     });
   });
+
+  describe('#sort', function () {
+    it('should return an array', function () {
+      const x = [1, 2, 3, 10];
+      const a = help.sort(x);
+
+      expect(a).to.be.an('array');
+    });
+
+    it('should sort an array in ascending order', function () {
+      const x = [10, 3, 2, 1];
+
+      const a = help.sort(x);
+
+      expect(a).to.eql([1, 2, 3, 10]);
+    });
+  });
 });
