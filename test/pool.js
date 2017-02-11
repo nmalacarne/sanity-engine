@@ -81,7 +81,7 @@ describe('pool', function () {
       const p = pool();
       const x = 1;
 
-      p.on(config.pool.events.VAL_CHANGED, function (previousValue, newValue) {
+      p.on(config.pool.events.CHANGED, function (previousValue, newValue) {
         expect(previousValue).to.be(p.max);
         expect(newValue).to.be(p.max - x);
         done();
@@ -95,7 +95,7 @@ describe('pool', function () {
       const p = pool({val: 1});
       const x = 1;
 
-      p.on(config.pool.events.VAL_EMPTY, function () {
+      p.on(config.pool.events.EMPTY, function () {
         expect(true);
         done();
       });
@@ -107,7 +107,7 @@ describe('pool', function () {
       const p = pool({val: 99});
       const x = 1;
 
-      p.on(config.pool.events.VAL_FULL, function () {
+      p.on(config.pool.events.FULL, function () {
         expect(true);
         done();
       });
